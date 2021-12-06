@@ -1,5 +1,8 @@
 <template>
   <div class="login" clearfix>
+    <div style="margin-top:50px;">
+      <h1>校园智慧送餐系统</h1>
+    </div>
     <div class="login-wrap">
       <el-row type="flex" justify="center">
         <el-form ref="loginForm" :model="user" :rules="rules" status-icon label-width="80px">
@@ -78,8 +81,8 @@ export default {
   background-color: rgba(255,255,255,0.5);
   background-size: cover;
   width: 500px;
-  height: 300px;
-  margin: 215px auto;
+  height: 350px;
+  margin: 115px auto;
   overflow: hidden;
   padding-top: 10px;
   line-height: 40px;
@@ -87,6 +90,13 @@ export default {
 #password {
   margin-bottom: 5px;
 }
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+  color: #000;
+}
+
 h3 {
   color: #0babeab8;
   font-size: 24px;

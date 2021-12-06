@@ -42,7 +42,7 @@ router.beforeEach((to, from, next) => {
     next();
   } else if (accessToken && to.path === "/login") {
     next({ path: from.fullPath });
-  } else if (!accessToken && to.path !== "/login") {
+  } else if (!accessToken && (to.path !== "/login" && to.path !== "/register")) {
     next("/login");
   } else {
     next();
