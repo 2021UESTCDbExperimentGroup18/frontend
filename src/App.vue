@@ -1,24 +1,21 @@
 <template>
   <div>
-    <TitleBar :user_id="user_info.user_id" :phone="user_info.phone"/>
-    <el-main>
-      test main
-      <HelloWorld msg="Welcome to Your Vue.js App"/>
-    </el-main>
+    <router-view/>
   </div>
-
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import TitleBar from "./components/TitleBar.vue";
+// import HelloWorld from './components/HelloWorld.vue'
+// import TitleBar from "./components/TitleBar.vue";
+// import Login from "@/components/Login.vue"
 import axios from 'axios'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    TitleBar
+    // Login
+    // HelloWorld,
+    // TitleBar
   },
   data() {
     return {
@@ -55,6 +52,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  height: 100%;
+  width: 100%;
 }
 </style>
