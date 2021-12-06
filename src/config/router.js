@@ -1,6 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 import login from "../components/Login.vue";
 import register from "../components/Register.vue";
+import personal from "../components/Personal.vue";
 
 const routes = [
   {
@@ -13,11 +14,11 @@ const routes = [
     name: register,
     component: register,
   },
-  //   {
-  //     path: "/personal",
-  //     name: Personal,
-  //     component: Personal,
-  //   },
+    {
+      path: "/personal",
+      name: personal,
+      component: personal,
+    },
 ];
 
 const router = createRouter({
@@ -42,7 +43,7 @@ router.beforeEach((to, from, next) => {
     next();
   } else if (accessToken && to.path === "/login") {
     next({ path: from.fullPath });
-  } else if (!accessToken && (to.path !== "/login" && to.path !== "/register")) {
+  } else if (!accessToken && (to.path !== "/login" && to.path !== "/register" && to.path !== "/personal")) {
     next("/login");
   } else {
     next();
