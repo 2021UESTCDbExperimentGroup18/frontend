@@ -1,6 +1,6 @@
 <template>
   <div>
-    <title-bar :phone="user_info.phone" :user_id="user_info.user_id" :user_type="user_info.type" />
+    <title-bar :phone="user_info.phone" :user_id="user_info.user_id" :user_type="user_info.type" :user_name="user_info.user_name" :page_type='page_type'/>
   </div>
 </template>
 <script>
@@ -17,8 +17,10 @@ export default {
       user_info: {
         user_id: "None",
         phone: "None",
-        type: "user"
+        type: "user",
+        user_name: "None",
       },
+      page_type: "details",
     };
   },
   mounted() {
@@ -26,13 +28,14 @@ export default {
   },
   methods: {
     async get_user_name() {
-      let res = await axios.get("http://127.0.0.1:5000/api/users/user_info", {
+      let res = await axios.get("/users/user_info", {
         params: {
           user_id: "test_user"
         }
       })
 
       console.log(res.data);
+      this.user_info.user_name = res.data.user_name;
       this.user_info.user_id = res.data.user_id;
       this.user_info.phone = res.data.phone;
       this.user_info.type = res.data.type;

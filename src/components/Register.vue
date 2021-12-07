@@ -52,10 +52,6 @@ export default {
       user_type_selected: "1",
     };
   },
-  created() {
-    // console.log($);
-    // console.log("1111");
-  },
   methods: {
     doRegister() {
       // TODO: 输入正确性检测

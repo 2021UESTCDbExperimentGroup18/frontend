@@ -13,7 +13,7 @@
         <el-row class="user_area" align="flex" onmouseover="this.style.cursor='hand'">
           <el-avatar :size="medium" :src="circleUrl" v-on:click="handleClick"/>
           <div align="center" class="user_id" v-on:click="handleClick">
-            {{ user_id }}
+            {{ user_name }}
           </div>
         </el-row>
       </el-col>
@@ -29,6 +29,7 @@ export default {
     phone: String,
     page_type: String,
     user_type: String,
+    user_name: String,
   },
   data() {
     return {
@@ -38,12 +39,12 @@ export default {
     };
   },
   created() {
-    if (this.page_type === "order") {
-      this.button_text = "下单";
-    } else if (this.page_type === "pickup") {
-      this.button_text = "接单";
-    } else {
-      console.log("page_type is not defined", this.page_type);
+    if (this.page_type === "details") {
+      if (this.user_type === "user") {
+        this.button_text = "下单";
+      } else if (this.user_type === "rider") {
+        this.button_text = "接单";
+      }
     }
   },
   methods: {
@@ -72,7 +73,7 @@ export default {
 }
 
 .additional_info {
-  font-size: 2em;
+  font-size: 1em;
   margin-left: 20px;
   padding: 20px;
 }
