@@ -2,16 +2,25 @@
   <el-header class="title_bar">
     <el-row class="title_line">
       <el-col :offset="14" :span="2">
-        <el-button type="primary" icon="el-icon-s-goods" size="large" v-if="this.page_type !== undefined">
-          {{button_text}}
+        <el-button
+          type="primary"
+          icon="el-icon-s-goods"
+          size="large"
+          v-if="this.page_type !== undefined"
+        >
+          {{ button_text }}
         </el-button>
       </el-col>
       <el-col :span="4">
         <div class="additional_info">phone: {{ phone }}</div>
       </el-col>
       <el-col :span="4">
-        <el-row class="user_area" align="flex" onmouseover="this.style.cursor='hand'">
-          <el-avatar :size="medium" :src="circleUrl" v-on:click="handleClick"/>
+        <el-row
+          class="user_area"
+          align="flex"
+          onmouseover="this.style.cursor='hand'"
+        >
+          <el-avatar :size="medium" :src="circleUrl" v-on:click="handleClick" />
           <div align="center" class="user_id" v-on:click="handleClick">
             {{ user_name }}
           </div>
@@ -59,9 +68,7 @@ export default {
 
 <style scoped>
 .title_bar {
-  position: sticky;
-  top: 0;
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 2px solid #e8e8e8;
   height: 80px;
   background: url("../assets/images/ocean_background.jpeg") no-repeat;
   background-size: cover;
@@ -80,7 +87,7 @@ export default {
 
 .user_area {
   padding: 20px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .user_id {

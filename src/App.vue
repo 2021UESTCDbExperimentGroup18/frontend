@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <router-view/>
-  </div>
+  <router-view />
 </template>
 
 <script>
 export default {
-  name: 'App',
-}
+  name: "App",
+};
 </script>
 
 <style>
@@ -19,5 +17,7 @@ export default {
   color: #2c3e50;
   height: 100%;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 </style>
