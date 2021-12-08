@@ -24,7 +24,7 @@
             query: { productID: item.product_id },
           }"
         >
-          <img :src="$target + item.product_picture" alt />
+          <img :src="'data:image/png;base64,' + item.image" alt />
           <h2>{{ item.product_name }}</h2>
           <h3>{{ item.product_title }}</h3>
           <p>
@@ -75,13 +75,13 @@ export default {
   methods: {
     deleteCollect(product_id) {
       this.$axios
-        .post("/api/user/collect/deleteCollect", {
+        .post("/api/users/collect/deleteCollect", {
           user_id: this.$store.getters.getUser.user_id,
           product_id: product_id,
         })
         .then((res) => {
           switch (res.data.code) {
-            case "001":
+            case 1:
               // 删除成功
               // 删除删除列表中的该商品信息
               for (let i = 0; i < this.list.length; i++) {

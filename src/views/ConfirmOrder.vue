@@ -50,7 +50,7 @@
         <div class="goods-list">
           <ul>
             <li v-for="item in getCheckGoods" :key="item.id">
-              <img :src="$target + item.productImg" />
+              <img :src="'data:image/png;base64,' + item.productImg" />
               <span class="pro-name">{{item.productName}}</span>
               <span class="pro-price">{{item.price}}元 x {{item.num}}</span>
               <span class="pro-status"></span>
@@ -68,15 +68,6 @@
       </div>
       <!-- 配送方式END -->
 
-      <!-- 发票 -->
-      <div class="section-invoice">
-        <p class="title">发票</p>
-        <p class="invoice">电子发票</p>
-        <p class="invoice">个人</p>
-        <p class="invoice">商品明细</p>
-      </div>
-      <!-- 发票END -->
-
       <!-- 结算列表 -->
       <div class="section-count">
         <div class="money-box">
@@ -88,14 +79,6 @@
             <li>
               <span class="title">商品总价：</span>
               <span class="value">{{getTotalPrice}}元</span>
-            </li>
-            <li>
-              <span class="title">活动优惠：</span>
-              <span class="value">-0元</span>
-            </li>
-            <li>
-              <span class="title">优惠券抵扣：</span>
-              <span class="value">-0元</span>
             </li>
             <li>
               <span class="title">运费：</span>
@@ -165,7 +148,7 @@ export default {
     ...mapActions(["deleteShoppingCart"]),
     addOrder() {
       this.$axios
-        .post("/api/user/order/addOrder", {
+        .post("/api/users/order/addOrder", {
           user_id: this.$store.getters.getUser.user_id,
           products: this.getCheckGoods
         })
@@ -173,7 +156,7 @@ export default {
           let products = this.getCheckGoods;
           switch (res.data.code) {
             // “001”代表结算成功
-            case "001":
+            case 1:
               for (let i = 0; i < products.length; i++) {
                 const temp = products[i];
                 // 删除已经结算的购物车商品

@@ -22,7 +22,7 @@
         <div>
           <img
             style="max-height: 560px; max-width: 560px"
-            :src="'data:image/png;base64,' + productPicture[0]"
+            :src="'data:image/png;base64,' + productPicture"
           />
         </div>
       </div>
@@ -138,26 +138,21 @@ export default {
         return;
       }
       this.$axios
-        .post("/api/user/shoppingCart/addShoppingCart", {
+        .post("/api/users/shoppingCart/addShoppingCart", {
           user_id: this.$store.getters.getUser.user_id,
           product_id: this.productID,
         })
         .then((res) => {
           switch (res.data.code) {
-            case "001":
+            case 1:
               // 新加入购物车成功
               this.unshiftShoppingCart(res.data.shoppingCartData[0]);
               this.notifySucceed(res.data.msg);
               break;
-            case "002":
+            case 2:
               // 该商品已经在购物车，数量+1
               this.addShoppingCartNum(this.productID);
               this.notifySucceed(res.data.msg);
-              break;
-            case "003":
-              // 商品数量达到限购数量
-              this.dis = true;
-              this.notifyError(res.data.msg);
               break;
             default:
               this.notifyError(res.data.msg);

@@ -94,11 +94,11 @@ export default {
   activated() {
     // 获取订单数据
     this.$axios
-      .post("/api/user/order/getOrder", {
+      .post("/api/users/order/getOrder", {
         user_id: this.$store.getters.getUser.user_id
       })
       .then(res => {
-        if (res.data.code === "001") {
+        if (res.data.code === 1) {
           this.orders = res.data.orders;
         } else {
           this.notifyError(res.data.msg);

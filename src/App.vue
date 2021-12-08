@@ -23,7 +23,7 @@
                   >
                 </div>
                 <el-button type="text" slot="reference">{{
-                  this.$store.getters.getUser.userName
+                  this.$store.getters.getUser.phone
                 }}</el-button>
               </el-popover>
             </li>
@@ -144,11 +144,11 @@ export default {
       } else {
         // 用户已经登录,获取该用户的购物车信息
         this.$axios
-          .post("/api/user/shoppingCart/getShoppingCart", {
+          .post("/api/users/shoppingCart/getShoppingCart", {
             user_id: val.user_id,
           })
           .then((res) => {
-            if (res.data.code === "001") {
+            if (res.data.code === 1) {
               // 001 为成功, 更新vuex购物车状态
               this.setShoppingCart(res.data.shoppingCartData);
             } else {
