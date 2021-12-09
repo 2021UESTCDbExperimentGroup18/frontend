@@ -8,7 +8,7 @@
             <li v-if="!this.$store.getters.getUser">
               <el-button type="text" @click="login">登录</el-button>
               <span class="sep">|</span>
-              <el-button type="text" @click="register = true">注册</el-button>
+              <el-button type="text"><router-link to="/register">注册</router-link></el-button>
             </li>
             <li v-else>
               欢迎
@@ -72,8 +72,6 @@
 
       <!-- 登录模块 -->
       <MyLogin></MyLogin>
-      <!-- 注册模块 -->
-      <MyRegister :register="register" @fromChild="isRegister"></MyRegister>
 
       <!-- 主要区域容器 -->
       <el-main>

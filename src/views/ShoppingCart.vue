@@ -133,24 +133,15 @@ export default {
       this.updateShoppingCart({ key: key, prop: "check", val: true });
       // 向后端发起更新购物车的数据库信息请求
       this.$axios
-<<<<<<< Updated upstream
-        .post("/api/user/shoppingCart/updateShoppingCart", {
-=======
         .post("/api/users/shoppingCart/updateShoppingCart", {
->>>>>>> Stashed changes
           user_id: this.$store.getters.getUser.user_id,
           product_id: productID,
           num: currentValue
         })
         .then(res => {
           switch (res.data.code) {
-<<<<<<< Updated upstream
-            case "001":
-              // “001”代表更新成功
-=======
             case 1:
               // 1代表更新成功
->>>>>>> Stashed changes
               // 更新vuex状态
               this.updateShoppingCart({
                 key: key,
@@ -176,21 +167,13 @@ export default {
     // 向后端发起删除购物车的数据库信息请求
     deleteItem(e, id, productID) {
       this.$axios
-<<<<<<< Updated upstream
-        .post("/api/user/shoppingCart/deleteShoppingCart", {
-=======
         .post("/api/users/shoppingCart/deleteShoppingCart", {
->>>>>>> Stashed changes
           user_id: this.$store.getters.getUser.user_id,
           product_id: productID
         })
         .then(res => {
           switch (res.data.code) {
-<<<<<<< Updated upstream
-            case "001":
-=======
             case 1:
->>>>>>> Stashed changes
               // “001” 删除成功
               // 更新vuex状态
               this.deleteShoppingCart(id);

@@ -108,6 +108,7 @@ export default {
                 localStorage.setItem("user", user);
                 // 登录信息存到vuex
                 this.setUser(res.data.user);
+                this.$router.push({path: "/goods"});
                 // 弹出通知框提示登录成功信息
                 this.notifySucceed(res.data.message);
               } else {

@@ -9,11 +9,7 @@ export default {
   state: {
     shoppingCart: []
     // shoppingCart结构
-<<<<<<< Updated upstream
-    /* 
-=======
     /*
->>>>>>> Stashed changes
     shoppingCart = {
       id: "", // 购物车id
       productID: "", // 商品id
@@ -26,7 +22,7 @@ export default {
     } */
   },
   getters: {
-    getShoppingCart (state) {
+    getShoppingCart (state) {clearImmediate
       // 获取购物车状态
       return state.shoppingCart;
     },
@@ -91,10 +87,7 @@ export default {
     setShoppingCart (state, data) {
       // 设置购物车状态
       state.shoppingCart = data;
-<<<<<<< Updated upstream
-=======
       console.log("set cart", state.shoppingCart)
->>>>>>> Stashed changes
     },
     unshiftShoppingCart (state, data) {
       // 添加购物车
@@ -121,16 +114,8 @@ export default {
       // 增加购物车商品数量
       // 用于在商品详情页点击添加购物车,后台返回002，“该商品已在购物车，数量 +1”，更新vuex的商品数量
       for (let i = 0; i < state.shoppingCart.length; i++) {
-<<<<<<< Updated upstream
-        const temp = state.shoppingCart[i];
-        if (temp.productID == productID) {
-          if (temp.num < temp.maxNum) {
-            temp.num++;
-          }
-=======
         if (state.shoppingCart[i].productID == productID) {
           state.shoppingCart[i].num+=1;
->>>>>>> Stashed changes
         }
       }
     },
