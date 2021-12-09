@@ -51,8 +51,8 @@ export default {
     if (this.page_type === "details") {
       if (this.user_type === "user") {
         this.button_text = "下单";
-      } else if (this.user_type === "rider") {
-        this.button_text = "接单";
+      } else if (this.user_type === "administer") {
+        this.button_text = "管理页";
       }
     }
   },

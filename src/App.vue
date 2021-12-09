@@ -1,17 +1,17 @@
 <template>
 <!--  <router-view />-->
 <!--  <Personal/>-->
-<!--  <Administer_info/>-->
-  <User_info/>
+  <Administer_info/>
+<!--  <User_info/>-->
 </template>
 
 <script>
 // import Personal from "@/components/Personal";
-// import Administer_info from "@/components/Administer_info";
-import User_info from "@/components/User_info";
+import Administer_info from "@/components/Administer_info";
+// import User_info from "@/components/User_info";
 export default {
   name: "App",
-  components: {User_info},
+  components: {Administer_info},
 };
 </script>
 

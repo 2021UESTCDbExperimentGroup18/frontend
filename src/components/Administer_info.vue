@@ -30,7 +30,7 @@
                 <el-input v-model="form.address" placeholder="地址"></el-input>
               </el-col>
               <el-col :span="8">
-                <el-input v-model="form.phone" placeholder="电话"></el-input>
+                <el-input v-model="form.add_phone" placeholder="电话"></el-input>
               </el-col>
               <el-col :span="8">
                 <el-button type="primary" @click="add_address()">添加</el-button>
@@ -92,9 +92,9 @@ export default {
     return {
       user_info: {
         user_id: "None",
-        phone: "None",
-        type: "user",
-        user_name: "None",
+        phone: "10086",
+        type: "administer",
+        user_name: "管理员",
       },
       page_type: "details",
       total_orders: 0,
@@ -110,36 +110,35 @@ export default {
       },
       tableData: [
         {
-          address_id:12313,
-          address: "上海市普陀区金沙江路 1518 弄",
-          phone: "1312312312312",
+          address_id:1,
+          address: "四川省成都市高新区西源大道2006号",
+          phone: "13813016855",
 
         },
         {
-          address_id:213213,
-          address: "上海市普陀区金沙江路 1518 弄",
-          phone: "6436436363",
+          address_id:2,
+          address: "四川省成都市",
+          phone: "15968780224",
 
         },
         {
-          address_id:31321,
-          address: "上海市普陀区金沙江路 1518 弄",
-          phone: "146346436346",
+          address_id:3,
+          address: "浙江省杭州市",
+          phone: "14634643346",
 
         },
         {
-          address_id:13134,
-          address: "上海市普陀区金沙江路 1518 弄",
-          phone: "343454352",
+          address_id:4,
+          address: "江苏省南京市",
+          phone: "15963739866",
 
         },
         {
-          address_id:132135,
-          address: "上海市普陀区金沙江路 1518 弄",
-          phone: "76756712312",
+          address_id:5,
+          address: "北京市朝阳区",
+          phone: "13813016812",
 
         }]
-
     };
   },
   mounted() {
