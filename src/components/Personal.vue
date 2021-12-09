@@ -134,10 +134,10 @@ export default {
     };
   },
   mounted() {
-    this.get_user_name();
+    this.get_user_info();
   },
   methods: {
-    async get_user_name() {
+    async get_user_info() {
       let res = await axios.get("/users/user_info", {
         params: {
           user_id: "test_user",

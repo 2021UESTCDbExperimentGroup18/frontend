@@ -2,6 +2,8 @@ import { createWebHistory, createRouter } from "vue-router";
 import login from "../components/Login.vue";
 import register from "../components/Register.vue";
 import personal from "../components/Personal.vue";
+import administer_info from "@/components/Administer_info";
+
 
 const routes = [
   {
@@ -19,6 +21,11 @@ const routes = [
       name: personal,
       component: personal,
     },
+  {
+    path: "/administer_info",
+    name:administer_info,
+    component: administer_info
+  }
 ];
 
 const router = createRouter({
