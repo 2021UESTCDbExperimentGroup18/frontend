@@ -31,9 +31,9 @@
               v-for="item in address"
               :key="item.id"
             >
-              <h2>{{item.name}}</h2>
-              <p class="phone">{{item.phone}}</p>
-              <p class="address">{{item.address}}</p>
+              <h2>{{ item.name }}</h2>
+              <p class="phone">{{ item.phone }}</p>
+              <p class="address">{{ item.address }}</p>
             </li>
             <li class="add-address">
               <i class="el-icon-circle-plus-outline"></i>
@@ -51,10 +51,10 @@
           <ul>
             <li v-for="item in getCheckGoods" :key="item.id">
               <img :src="'data:image/png;base64,' + item.productImg" />
-              <span class="pro-name">{{item.productName}}</span>
-              <span class="pro-price">{{item.price}}元 x {{item.num}}</span>
+              <span class="pro-name">{{ item.productName }}</span>
+              <span class="pro-price">{{ item.price }}元 x {{ item.num }}</span>
               <span class="pro-status"></span>
-              <span class="pro-total">{{item.price * item.num}}元</span>
+              <span class="pro-total">{{ item.price * item.num }}元</span>
             </li>
           </ul>
         </div>
@@ -74,11 +74,11 @@
           <ul>
             <li>
               <span class="title">商品件数：</span>
-              <span class="value">{{getCheckNum}}件</span>
+              <span class="value">{{ getCheckNum }}件</span>
             </li>
             <li>
               <span class="title">商品总价：</span>
-              <span class="value">{{getTotalPrice}}元</span>
+              <span class="value">{{ getTotalPrice }}元</span>
             </li>
             <li>
               <span class="title">运费：</span>
@@ -87,7 +87,8 @@
             <li class="total">
               <span class="title">应付总额：</span>
               <span class="value">
-                <span class="total-price">{{getTotalPrice}}</span>元
+                <span class="total-price">{{ getTotalPrice }}</span
+                >元
               </span>
             </li>
           </ul>
@@ -98,8 +99,15 @@
       <!-- 结算导航 -->
       <div class="section-bar">
         <div class="btn">
-          <router-link to="/shoppingCart" class="btn-base btn-return">返回购物车</router-link>
-          <a href="javascript:void(0);" @click="addOrder" class="btn-base btn-primary">结算</a>
+          <router-link to="/shoppingCart" class="btn-base btn-return"
+            >返回购物车</router-link
+          >
+          <a
+            href="javascript:void(0);"
+            @click="addOrder"
+            class="btn-base btn-primary"
+            >结算</a
+          >
         </div>
       </div>
       <!-- 结算导航END -->
@@ -122,15 +130,15 @@ export default {
           id: 1,
           name: "陈同学",
           phone: "13580018623",
-          address: "广东 广州市 白云区 江高镇 广东白云学院"
+          address: "广东 广州市 白云区 江高镇 广东白云学院",
         },
         {
           id: 2,
           name: "陈同学",
           phone: "13580018623",
-          address: "广东 茂名市 化州市 杨梅镇 ***"
-        }
-      ]
+          address: "广东 茂名市 化州市 杨梅镇 ***",
+        },
+      ],
     };
   },
   created() {
@@ -142,17 +150,17 @@ export default {
   },
   computed: {
     // 结算的商品数量; 结算商品总计; 结算商品信息
-    ...mapGetters(["getCheckNum", "getTotalPrice", "getCheckGoods"])
+    ...mapGetters(["getCheckNum", "getTotalPrice", "getCheckGoods"]),
   },
   methods: {
     ...mapActions(["deleteShoppingCart"]),
     addOrder() {
       this.$axios
-        .post("/api/users/order/addOrder", {
+        .post("/api/orders/addOrder", {
           user_id: this.$store.getters.getUser.user_id,
-          products: this.getCheckGoods
+          products: this.getCheckGoods,
         })
-        .then(res => {
+        .then((res) => {
           let products = this.getCheckGoods;
           switch (res.data.code) {
             // “001”代表结算成功
@@ -172,11 +180,11 @@ export default {
               this.notifyError(res.data.msg);
           }
         })
-        .catch(err => {
+        .catch((err) => {
           return Promise.reject(err);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>

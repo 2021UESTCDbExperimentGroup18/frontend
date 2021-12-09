@@ -146,6 +146,7 @@ export default {
           switch (res.data.code) {
             case 1:
               // 新加入购物车成功
+              console.log("cart dataStr", res.data.shoppingCartData);
               this.unshiftShoppingCart(res.data.shoppingCartData[0]);
               this.notifySucceed(res.data.msg);
               break;

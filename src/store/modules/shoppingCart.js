@@ -86,7 +86,9 @@ export default {
     unshiftShoppingCart(state, data) {
       // 添加购物车
       // 用于在商品详情页点击添加购物车,后台添加成功后，更新vuex状态
+      console.log("shopping cart", state.shoppingCart);
       state.shoppingCart.unshift(data);
+      console.log("shopping cart", state.shoppingCart);
     },
     updateShoppingCart(state, payload) {
       // 更新购物车

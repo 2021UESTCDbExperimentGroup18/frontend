@@ -26,7 +26,7 @@
         >
           <img :src="'data:image/png;base64,' + item.image" alt />
           <h2>{{ item.product_name }}</h2>
-          <h3>{{ item.product_title }}</h3>
+          <h3>{{ item.product_intro }}</h3>
           <p>
             <span>{{ item.product_selling_price }}元</span>
             <span
