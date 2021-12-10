@@ -64,7 +64,7 @@
       <!-- 配送方式 -->
       <div class="section-shipment">
         <p class="title">配送方式</p>
-        <p class="shipment">包邮</p>
+        <p class="shipment">校内骑手专送</p>
       </div>
       <!-- 配送方式END -->
 
@@ -82,12 +82,14 @@
             </li>
             <li>
               <span class="title">运费：</span>
-              <span class="value">0元</span>
+              <span class="value">{{ getCheckNum * 5 }}元</span>
             </li>
             <li class="total">
               <span class="title">应付总额：</span>
               <span class="value">
-                <span class="total-price">{{ getTotalPrice }}</span
+                <span class="total-price">{{
+                  getTotalPrice + getCheckNum * 5
+                }}</span
                 >元
               </span>
             </li>
@@ -128,15 +130,15 @@ export default {
       address: [
         {
           id: 1,
-          name: "陈同学",
-          phone: "13580018623",
-          address: "广东 广州市 白云区 江高镇 广东白云学院",
+          name: "小明",
+          phone: "155****5678",
+          address: "四川 成都市 电子科技大学 xxx组团 xx栋",
         },
         {
           id: 2,
-          name: "陈同学",
-          phone: "13580018623",
-          address: "广东 茂名市 化州市 杨梅镇 ***",
+          name: "小红",
+          phone: "155****7890",
+          address: "四川 成都市 电子科技大学 xxx组团 xx栋",
         },
       ],
     };
